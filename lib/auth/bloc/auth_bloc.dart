@@ -8,13 +8,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthDataSource dataSource;
 
   AuthBloc({required this.dataSource}) : super(AuthState(authenticated: dataSource.userSignedIn())) {
-    on<AuthStateRequest>((event, emit) => _emitState(emit));
     on<SignInEvent>((event, emit) => _handleSignIn(event, emit));
-  }
-
-  _emitState(Emitter<AuthState> emit) async {
-    final signedIn = await dataSource.userSignedIn();
-    emit(AuthState(authenticated: signedIn));
   }
 
   _handleSignIn(SignInEvent event, Emitter<AuthState> emit) async {
