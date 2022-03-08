@@ -16,17 +16,20 @@ class WorkoutsPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("WORKOUTS"),
         ),
-        body: BlocBuilder<WorkoutsPageController, WorkoutsPageState>(
-          builder: (ctx, state) {
-            if (state.workouts.isEmpty) {
-              return const Center(child: Text('No workouts to display...'));
-            } else {
-              return ListView.builder(
-                itemBuilder: (c, i) => WorkoutCard(state.workouts[i]),
-                itemCount: state.workouts.length,
-              );
-            }
-          },
+        body: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+          child: BlocBuilder<WorkoutsPageController, WorkoutsPageState>(
+            builder: (ctx, state) {
+              if (state.workouts.isEmpty) {
+                return const Center(child: Text('No workouts to display...'));
+              } else {
+                return ListView.builder(
+                  itemBuilder: (c, i) => WorkoutCard(state.workouts[i]),
+                  itemCount: state.workouts.length,
+                );
+              }
+            },
+          ),
         ),
         floatingActionButton: ElevatedButton.icon(
           icon: const Icon(Icons.add),

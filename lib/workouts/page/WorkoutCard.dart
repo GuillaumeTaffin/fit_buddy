@@ -13,7 +13,7 @@ class WorkoutCard extends StatelessWidget {
       child: ListTile(
         title: Text(
           workout.title.toUpperCase(),
-          style: textTheme.titleSmall,
+          style: textTheme.titleSmall?.apply(fontWeightDelta: 2, letterSpacingDelta: 1),
         ),
         subtitle: Text(
           workout.formattedTrainingDate,
