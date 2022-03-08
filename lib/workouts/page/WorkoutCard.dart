@@ -1,14 +1,10 @@
-import 'package:fit_buddy/workouts/service/workout.dart';
+import 'package:fit_buddy/workouts/page/controller/workout_view_model.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutCard extends StatelessWidget {
-  final Workout workout;
+  final WorkoutViewModel workout;
 
   const WorkoutCard(this.workout, {Key? key}) : super(key: key);
-
-  String _formatDate(DateTime date) {
-    return "${date.year}/${date.month}/${date.day}";
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +16,7 @@ class WorkoutCard extends StatelessWidget {
           style: textTheme.titleSmall,
         ),
         subtitle: Text(
-          _formatDate(workout.trainingAt),
+          workout.formattedTrainingDate,
           style: textTheme.labelSmall?.copyWith(color: Theme.of(context).hintColor),
         ),
       ),
