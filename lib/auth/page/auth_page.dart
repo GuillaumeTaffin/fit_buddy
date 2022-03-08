@@ -43,7 +43,7 @@ class AuthPage extends StatelessWidget {
                 onChanged: (value) => password = value,
               ),
               Center(
-                child: TextButton(
+                child: ElevatedButton(
                   onPressed: () => context.read<AuthBloc>().add(SignInEvent(email, password)),
                   child: const Text('SIGN IN'),
                 ),
